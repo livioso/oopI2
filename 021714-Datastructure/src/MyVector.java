@@ -33,12 +33,18 @@ public class MyVector implements IVector {
 	}
 	
 	public void pushBack (Object p) {
-		
-		
+		int nextFreeIndex = this.size();
+		dataStore[nextFreeIndex] = p;
 	}
 	
 	public Object popFront () {
+		Object front = dataStore[0];
 		
-		return null;
+		// remove leading gap
+		for(int i = 1; i < this.capacity(); i++) {
+			dataStore[i - 1] = dataStore[i];
+		}
+		
+		return front;
 	}
 }
