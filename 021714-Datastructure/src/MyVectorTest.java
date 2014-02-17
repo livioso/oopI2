@@ -36,7 +36,10 @@ public class MyVectorTest {
 
 	@Test
 	public void testSize() {
-		fail("Not yet implemented");
+		ObjectUnderTest.pushBack(new Integer(1));
+		ObjectUnderTest.pushBack(new Double(2.0));
+		
+		assertEquals(2, ObjectUnderTest.size());
 	}
 
 	@Test
