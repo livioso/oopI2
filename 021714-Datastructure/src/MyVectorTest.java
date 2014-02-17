@@ -21,12 +21,17 @@ public class MyVectorTest {
 	@Test
 	public void testMyVector() {
 		ObjectUnderTest = new MyVector(4);
-		assertEquals(0, ObjectUnderTest.capacity());
+		
+		assertEquals(4, ObjectUnderTest.capacity());
+		assertEquals(0, ObjectUnderTest.size());
 	}
 
 	@Test
 	public void testGetElement() {
-		fail("Not yet implemented");
+		Object valueAdded = new Integer(1);
+		ObjectUnderTest.pushBack(valueAdded);
+		
+		assertEquals(valueAdded, ObjectUnderTest.getElement(0));
 	}
 
 	@Test
@@ -36,17 +41,37 @@ public class MyVectorTest {
 
 	@Test
 	public void testCapacity() {
-		fail("Not yet implemented");
+		ObjectUnderTest = new MyVector(4);
+		assertEquals(4, ObjectUnderTest.capacity());
 	}
 
 	@Test
 	public void testPushBack() {
-
+		ObjectUnderTest.pushBack(new Integer(1));
+		ObjectUnderTest.pushBack(new Double(2.0));
+		
+		assertEquals(2, ObjectUnderTest.size());
 	}
 
 	@Test
 	public void testPopFront() {
-		fail("Not yet implemented");
+		MyVector ObjectUnderTestPopFront = new MyVector(4);
+		Object TestValue21 = new Integer(21);
+		Object TestValue42 = new Integer(42);
+		
+		ObjectUnderTestPopFront.pushBack(TestValue21);
+		ObjectUnderTestPopFront.pushBack(TestValue42);
+		ObjectUnderTestPopFront.pushBack(TestValue21);
+		ObjectUnderTestPopFront.pushBack(TestValue42);
+		
+		// verify we set up everything correctly
+		Object[] expectedBeforeArray = {TestValue21, TestValue42, TestValue21, TestValue42};
+		assertArrayEquals(expectedBeforeArray, ObjectUnderTestPopFront.getDataStore());
+		
+		// after popFront
+		ObjectUnderTestPopFront.popFront();
+		Object[] expectedAfterArray = {TestValue42, TestValue21, TestValue42, null};
+		assertArrayEquals(expectedAfterArray, ObjectUnderTestPopFront.getDataStore());
 	}
 
 }

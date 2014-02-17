@@ -7,6 +7,11 @@ public class MyVector implements IVector {
 		dataStore = new Object[capacity];
 	}
 	
+	// for unit testing only
+	public Object[] getDataStore () {
+		return dataStore;
+	}
+	
 	public Object getElement (int index) {
 		if(index < this.capacity()) {
 			return dataStore[index];
@@ -20,7 +25,7 @@ public class MyVector implements IVector {
 		int size = 0; 
 		
 		for(size = 0; size < this.capacity(); ++size) {
-			if(this.getElement(size).equals(null)) {
+			if(this.getElement(size) == null) {
 				break;
 			}
 		}
@@ -43,6 +48,7 @@ public class MyVector implements IVector {
 		// remove leading gap
 		for(int i = 1; i < this.capacity(); i++) {
 			dataStore[i - 1] = dataStore[i];
+			dataStore[i] = null;
 		}
 		
 		return front;
