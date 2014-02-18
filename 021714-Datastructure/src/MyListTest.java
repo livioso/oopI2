@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class MyListUnitTest {
+public class MyListTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -16,17 +16,27 @@ public class MyListUnitTest {
 	}
 
 	@Test
-	public void testGetValue() {
+	public void testGetHead() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetNext() {
+	public void testGetTail() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testSetNext() {
+	public void testToString() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testToArray() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetLength() {
 		fail("Not yet implemented");
 	}
 

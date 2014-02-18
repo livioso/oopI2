@@ -1,22 +1,40 @@
 
-public class MyList implements IListElement{
-
+public class MyList implements IList {
+	
+	protected IListElement head = null;
+	protected IListElement tail = null;
+	
 	@Override
-	public Object getValue() {
-		// TODO Auto-generated method stub
-		return null;
+	public IListElement getHead() {
+		return head;
 	}
-
+	
 	@Override
-	public IListElement getNext() {
-		// TODO Auto-generated method stub
-		return null;
+	public IListElement getTail() {
+		return tail;
 	}
-
+	
 	@Override
-	public void setNext(IListElement next) {
-		// TODO Auto-generated method stub
+	public String toString() {
+		return this.toArray().toString();
+	}
+	
+	@Override
+	public IListElement[] toArray() {
+		IListElement[] asArray = new IListElement[this.getLength()];
 		
+		return asArray;
 	}
-
+	
+	public int getLength() {
+		IListElement iterator = head;
+		int length = 0;
+		
+		while(head != null) {
+			length++;
+			head = head.getNext();
+		}
+		
+		return length;
+	}
 }
