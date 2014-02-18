@@ -7,8 +7,12 @@ import org.junit.Test;
 
 public class MyListElementUnitTest {
 
+	public final String OBJECTUNDERTEST_VALUE = "BlaBla";
+	IListElement ObjectUnderTest;
+	
 	@Before
 	public void setUp() throws Exception {
+		ObjectUnderTest = new MyListElement(OBJECTUNDERTEST_VALUE, null);
 	}
 
 	@After
@@ -17,17 +21,20 @@ public class MyListElementUnitTest {
 
 	@Test
 	public void testGetValue() {
-		fail("Not yet implemented");
+		assertEquals(OBJECTUNDERTEST_VALUE, ObjectUnderTest.getValue());
 	}
 
 	@Test
 	public void testGetNext() {
-		fail("Not yet implemented");
+		IListElement next = new MyListElement("SomeValue", null);
+		ObjectUnderTest.setNext(next);
+		assertEquals(next, ObjectUnderTest.getNext());
 	}
 
 	@Test
 	public void testSetNext() {
-		fail("Not yet implemented");
+		IListElement next = new MyListElement("SomeValue", null);
+		ObjectUnderTest.setNext(next);
+		assertEquals(next, ObjectUnderTest.getNext());
 	}
-
 }
