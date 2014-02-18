@@ -53,7 +53,26 @@ public class MyListTest {
 		
 		assertEquals(first, ObjectUnderTest.getTail());
 		assertEquals(second, ObjectUnderTest.getHead());
+		
 		assertEquals(second, first.getNext());
+	}
+	
+	@Test
+	public void testAppendWithThree() {
+		IListElement first = new MyListElement("first", null);
+		IListElement second = new MyListElement("second", null);
+		IListElement third = new MyListElement("third", null);
+		
+		ObjectUnderTest.append(first);
+		ObjectUnderTest.append(second);
+		ObjectUnderTest.append(third);
+		
+		assertEquals(first, ObjectUnderTest.getTail());
+		assertEquals(third, ObjectUnderTest.getHead());
+		
+		assertEquals(second, first.getNext());
+		assertEquals(third, second.getNext());
+		assertEquals(null, third.getNext());
 	}
 
 	@Test
@@ -72,12 +91,15 @@ public class MyListTest {
 	public void testGetLength() {
 		assertEquals(0, ObjectUnderTest.getLength());
 		
-		ObjectUnderTest.append(new MyListElement("Bla", null));
-		ObjectUnderTest.append(new MyListElement("Bla", null));
-		ObjectUnderTest.append(new MyListElement("Bla", null));
-		ObjectUnderTest.append(new MyListElement("Bla", null));
+		IListElement first = new MyListElement("first", null);
+		IListElement second = new MyListElement("second", null);
+		IListElement third = new MyListElement("third", null);
 		
-		assertEquals(4, ObjectUnderTest.getLength());
+		ObjectUnderTest.append(first);
+		ObjectUnderTest.append(second);
+		ObjectUnderTest.append(third);
+		
+		assertEquals(3, ObjectUnderTest.getLength());
 	}
 
 }

@@ -48,6 +48,10 @@ public class MyList implements IList {
 	@Override
 	public void append(IListElement toAppend) {
 		
+		// make sure toAppend
+		// doesn't lead anywhere
+		toAppend.setNext(null);
+		
 		// special case: first insert
 		if(head == null && tail == null) {
 			head = toAppend;
