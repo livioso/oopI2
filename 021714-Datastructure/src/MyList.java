@@ -22,6 +22,13 @@ public class MyList implements IList {
 	@Override
 	public IListElement[] toArray() {
 		IListElement[] asArray = new IListElement[this.getLength()];
+		IListElement iterator = head;
+		int index = 0;
+		
+		while(iterator != null) {
+			asArray[index++] = iterator;
+			iterator = iterator.getNext();
+		}
 		
 		return asArray;
 	}
@@ -30,11 +37,27 @@ public class MyList implements IList {
 		IListElement iterator = head;
 		int length = 0;
 		
-		while(head != null) {
+		while(iterator != null) {
 			length++;
-			head = head.getNext();
+			iterator = iterator.getNext();
 		}
 		
 		return length;
+	}
+
+	@Override
+	public void append(IListElement toAppend) {
+		
+		// special case: first insert
+		if(head == null && tail == null) {
+			head = toAppend;
+			tail = toAppend;
+			return;
+		}
+		
+		// keep in mind: 
+		// order is important
+		head.setNext(toAppend);
+		head = toAppend;
 	}
 }
