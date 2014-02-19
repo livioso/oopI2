@@ -76,18 +76,6 @@ public class MyListTest {
 	}
 
 	@Test
-	public void testToArray() {
-		IListElement first = new MyListElement("first", null);
-		IListElement second = new MyListElement("second", null);
-		
-		ObjectUnderTest.append(first);
-		ObjectUnderTest.append(second);
-		
-		IListElement[] expected = {first, second};
-		assertArrayEquals(expected, ObjectUnderTest.toArray());
-	}
-
-	@Test
 	public void testGetLength() {
 		assertEquals(0, ObjectUnderTest.getLength());
 		

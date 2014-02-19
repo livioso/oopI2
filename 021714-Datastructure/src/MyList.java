@@ -14,25 +14,6 @@ public class MyList implements IList {
 		return tail;
 	}
 	
-	@Override
-	public String toString() {
-		return this.toArray().toString();
-	}
-	
-	@Override
-	public IListElement[] toArray() {
-		IListElement[] asArray = new IListElement[this.getLength()];
-		IListElement iterator = head;
-		int index = 0;
-		
-		while(iterator != null) {
-			asArray[index++] = iterator;
-			iterator = iterator.getNext();
-		}
-		
-		return asArray;
-	}
-	
 	public int getLength() {
 		IListElement iterator = tail;
 		int length = 0;
