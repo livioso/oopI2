@@ -13,8 +13,7 @@ public class MyPair<K extends Comparable<K>, V> implements IMyPair<K, V> {
 
 	@Override
 	public V getValue() {
-		// TODO Auto-generated method stub
-		return null;
+		return value;
 	}
 
 }
