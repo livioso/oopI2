@@ -58,10 +58,17 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 		dataStore[nextFreeIndex] = (Object) toPushBack;
 		
 	}
-
+	
 	@Override
+	@SuppressWarnings("unchecked")
 	public T getMaxElement() {
-		// TODO Auto-generated method stub
-		return null;
+		// empty data store
+		if(this.size() == 0) {
+			return null;
+		}
+		
+		Object[] sortedDataStore = dataStore;
+		java.util.Arrays.sort(sortedDataStore);
+		return (T) sortedDataStore[sortedDataStore.length - 1];
 	}
 }

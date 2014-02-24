@@ -79,4 +79,15 @@ public class MyVectorTest {
 		assertArrayEquals(expectedAfterArray, ObjectUnderTestPopFront.getDataStore());
 	}
 
+	@Test
+	public void testGetMaxElement() {
+		Integer expectedMax = 99;
+		
+		ObjectUnderTest.pushBack(expectedMax);
+		ObjectUnderTest.pushBack(new Integer(1));
+		ObjectUnderTest.pushBack(new Integer(2));
+		ObjectUnderTest.pushBack(new Integer(3));
+		
+		assertEquals(Integer.valueOf(expectedMax), (Integer)ObjectUnderTest.getMaxElement().intValue());
+	}
 }
