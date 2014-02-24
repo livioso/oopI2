@@ -13,6 +13,7 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 		return dataStore;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public T getElement (int index) {
 		if(index < this.capacity()) {
 			return (T) dataStore[index];
@@ -38,6 +39,7 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 		return dataStore.length;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public T popFront () {
 		Object front = dataStore[0];
 		
