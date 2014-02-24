@@ -4,23 +4,22 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 	
 	private Object[] dataStore;
 	
-	public MyVector (int capacity) {
+	public MyVector (final int capacity) {
 		dataStore = new Object[capacity];
 	}
 	
 	// for unit testing only
 	public Object[] getDataStore () {
-		return dataStore;
+		return dataStore; // NOPMD by livio on 2/24/14 10:43 AM
 	}
 	
 	@SuppressWarnings("unchecked")
-	public T getElement (int index) {
+	public T getElement (final int index) {
 		if(index < this.capacity()) {
 			return (T) dataStore[index];
 		}
-		else {
-			return null;
-		}
+		
+		return null;
 	}
 	
 	public int size () {
@@ -41,7 +40,7 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 	
 	@SuppressWarnings("unchecked")
 	public T popFront () {
-		Object front = dataStore[0];
+		final Object front = dataStore[0];
 		
 		// remove leading gap
 		for(int i = 1; i < this.capacity(); i++) {
@@ -53,8 +52,8 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 	}
 
 	@Override
-	public void pushBack(T toPushBack) {
-		int nextFreeIndex = this.size();
+	public void pushBack(final T toPushBack) {
+		final int nextFreeIndex = this.size();
 		dataStore[nextFreeIndex] = (Object) toPushBack;
 		
 	}
@@ -63,12 +62,12 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 	@SuppressWarnings("unchecked")
 	public T getMaxElement() {
 		// empty data store
-		if(this.size() == 0) {
+		if(this.size() == 0) { // NOPMD by livio on 2/24/14 10:41 AM
 			return null;
 		}
 		
-		Object[] sortedDataStore = dataStore;
-		java.util.Arrays.sort(sortedDataStore);
+		final Object[] sortedDataStore = dataStore;
+		java.util.Arrays.sort(sortedDataStore); // NOPMD by livio on 2/24/14 10:41 AM
 		return (T) sortedDataStore[sortedDataStore.length - 1];
 	}
 }
