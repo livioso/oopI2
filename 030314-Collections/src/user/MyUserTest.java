@@ -18,6 +18,15 @@ public class MyUserTest {
 	@After
 	public void tearDown() throws Exception {
 	}
+	
+	@Test
+	public void testEquals() {
+		IMyUser equals = new MyUser();
+		equals.setAge(23);
+		
+		classUnderTest.setAge(23);
+		assertTrue(equals.equals(classUnderTest));
+	}
 
 	@Test
 	public void testCompareTo() {
