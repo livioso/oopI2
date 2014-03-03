@@ -10,7 +10,7 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 
 	// for unit testing only
 	public Object[] getDataStore () {
-		return dataStore; // NOPMD by livio on 2/24/14 10:43 AM
+		return dataStore; 
 	}
 
 	@SuppressWarnings("unchecked")
@@ -62,12 +62,12 @@ public class MyVector<T extends Comparable<?>> implements IVector<T> {
 	@SuppressWarnings("unchecked")
 	public T getMaxElement() {
 		// empty data store
-		if(this.size() == 0) { // NOPMD by livio on 2/24/14 10:41 AM
+		if(this.size() == 0) { 
 			return null;
 		}
 
 		final Object[] sortedDataStore = dataStore;
-		java.util.Arrays.sort(sortedDataStore); // NOPMD by livio on 2/24/14 10:41 AM
+		java.util.Arrays.sort(sortedDataStore); 
 		return (T) sortedDataStore[sortedDataStore.length - 1];
 	}
 }

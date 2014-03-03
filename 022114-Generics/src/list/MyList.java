@@ -48,4 +48,18 @@ public class MyList<T extends Comparable<?>> implements IList<T> {
 		head.setNext(toAppend);
 		head = toAppend;
 	}
+	
+	public static <E extends Comparable<E>> IListElement<E> getMaxElement (IListElement<E> list) {
+		IListElement<E> iter = list;
+		IListElement<E> max = iter;
+		
+		while (null != iter.getNext()) {
+			iter = iter.getNext();
+			if(max.compareTo(iter) > 0)  {
+				max = iter;
+			}
+		}
+		
+		return max;
+	}
 }

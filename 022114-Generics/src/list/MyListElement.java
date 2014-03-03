@@ -2,7 +2,7 @@ package list;
 import list.IListElement;
 
 
-public class MyListElement<T extends Comparable<?>> implements IListElement<T> {
+public class MyListElement<T extends Comparable<T>> implements IListElement<T> {
 
 	protected T value = null;
 	IListElement<T> next = null;
@@ -33,4 +33,9 @@ public class MyListElement<T extends Comparable<?>> implements IListElement<T> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+    public int compareTo(IListElement<T> o) {
+		return o.getValue().compareTo(this.getValue());
+    }
 }

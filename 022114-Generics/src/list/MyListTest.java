@@ -91,5 +91,18 @@ public class MyListTest {
 		
 		assertEquals(3, ObjectUnderTest.getLength());
 	}
+	
+	@Test
+	public void testGetMaxElement() {
+		IListElement<String> first = new MyListElement<String>("a", null);
+		IListElement<String> second = new MyListElement<String>("c", null);
+		IListElement<String> third = new MyListElement<String>("b", null);
+		
+		ObjectUnderTest.append(first);
+		ObjectUnderTest.append(second);
+		ObjectUnderTest.append(third);
+		
+		assertEquals(second, MyList.getMaxElement(first));
+	}
 
 }
