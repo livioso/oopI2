@@ -21,7 +21,17 @@ public class MyUserTest {
 
 	@Test
 	public void testCompareTo() {
-		fail("Not yet implemented");
+		IMyUser compared = new MyUser();
+		compared.setAge(23);
+		
+		classUnderTest.setAge(23);
+		assertEquals(0, classUnderTest.compareTo(compared));
+		
+		classUnderTest.setAge(24);
+		assertEquals(1, classUnderTest.compareTo(compared));
+		
+		classUnderTest.setAge(21);
+		assertEquals(-1, classUnderTest.compareTo(compared));
 	}
 
 	@Test
