@@ -1,6 +1,7 @@
 package user;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -66,6 +67,22 @@ public class MyUserCollectionPlayGround {
 		Iterator<Entry<String, MyUser>> mapIter = mapNameUser.entrySet().iterator();
 		while (mapIter.hasNext()) {
 			System.out.println(mapIter.next().getKey());
+		}
+		
+		// ... or with a generic iterator
+		Iterator<?> iter = treeSetMyUser.iterator();
+		while (iter.hasNext()) {
+		  System.out.println(iter.next());
+		}
+		
+		printCollectionWithGenerics(treeSetMyUser);
+		printCollectionWithGenerics(hashSetMyUser);
+	}
+	
+	public static void printCollectionWithGenerics(Collection<?> someCollection) {
+		Iterator<?> iter = someCollection.iterator();
+		while (iter.hasNext()) {
+		  System.out.println(iter.next()); // <-- uses toString from <?>
 		}
 	}
 }
