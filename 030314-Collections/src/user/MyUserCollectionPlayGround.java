@@ -75,12 +75,22 @@ public class MyUserCollectionPlayGround {
 		  System.out.println(iter.next());
 		}
 		
-		printCollectionWithGenerics(treeSetMyUser);
-		printCollectionWithGenerics(hashSetMyUser);
+		printSetWithGenerics(treeSetMyUser);
+		printSetWithGenerics(hashSetMyUser);
+		
+		printMapWithGenerics(mapAgeUser);
+		printMapWithGenerics(mapNameUser);
 	}
 	
-	public static void printCollectionWithGenerics(Collection<?> someCollection) {
-		Iterator<?> iter = someCollection.iterator();
+	public static void printSetWithGenerics(Collection<?> someSet) {
+		Iterator<?> iter = someSet.iterator();
+		while (iter.hasNext()) {
+		  System.out.println(iter.next()); // <-- uses toString from <?>
+		}
+	}
+	
+	public static void printMapWithGenerics(Map<?, ?> someCollection) {
+		Iterator<?> iter = someCollection.entrySet().iterator();
 		while (iter.hasNext()) {
 		  System.out.println(iter.next()); // <-- uses toString from <?>
 		}
