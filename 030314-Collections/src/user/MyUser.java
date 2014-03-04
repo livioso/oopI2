@@ -2,6 +2,16 @@ package user;
 
 public class MyUser implements IMyUser {
 	
+	private String name;
+	private int age;
+	private int matNumber;
+	
+	public MyUser (String name, int age, int matNumber) {
+		this.name = name;
+		this.age = age;
+		this.matNumber = matNumber;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -23,10 +33,6 @@ public class MyUser implements IMyUser {
 			return false;
 		return true;
 	}
-
-	private String name;
-	private int age;
-	private int matNumber;
 
 	@Override
 	public int compareTo(IMyUser o) {

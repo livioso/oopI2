@@ -12,7 +12,7 @@ public class MyUserTest {
 
 	@Before
 	public void setUp() throws Exception {
-		classUnderTest = new MyUser();
+		classUnderTest = new MyUser("", 0, 0);
 	}
 
 	@After
@@ -20,8 +20,17 @@ public class MyUserTest {
 	}
 	
 	@Test
+	public void testCreate () {
+		classUnderTest = new MyUser("BlaBlaBla", 123, 456);
+		
+		assertEquals("BlaBlaBla", classUnderTest.getName());
+		assertEquals(123, classUnderTest.getAge());
+		assertEquals(456, classUnderTest.getMatNumber());
+	}
+	
+	@Test
 	public void testEquals() {
-		IMyUser equals = new MyUser();
+		IMyUser equals = new MyUser("", 0, 0);
 		equals.setAge(23);
 		
 		classUnderTest.setAge(23);
@@ -30,7 +39,7 @@ public class MyUserTest {
 
 	@Test
 	public void testCompareTo() {
-		IMyUser compared = new MyUser();
+		IMyUser compared = new MyUser("Sepp", 0, 0);
 		compared.setAge(23);
 		
 		classUnderTest.setAge(23);
