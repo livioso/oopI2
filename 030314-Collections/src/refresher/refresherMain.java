@@ -38,8 +38,5 @@ public class refresherMain {
 		
 		priorityQueue.peek(); // retrieves but doesn't remove
 		priorityQueue.poll(); // retrieves and removes
-	
-		
-		
 	}
 }
