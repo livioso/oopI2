@@ -18,15 +18,15 @@ public class Networker extends Observable implements Observer {
 	}
 	
 	public void addPost(String post) {
-		String newPost = username + " >> " + post;
+		String newPost = username + " >> " + post + "<<";
 		timelineposts.add(newPost);
 	
 		setChanged();
-		notifyObservers(newPost + " new post on timeline of " + username);
+		notifyObservers(newPost);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		System.out.println(arg);
+		System.out.println(username + "'s friend just posted on his timeline: " + arg);
 	}
 }
