@@ -25,8 +25,8 @@ import java.util.ArrayList;
  * 			
  * 							Read		Write
  * 		Box<?> 				No			No
- * 		Box<? extends A>  	Yes		 	No
- *  	Box<? super B>		No			Yes
+ * 		Box<? extends A>  	Yes		 	No			// note: Box<? extends B> box = new Box<B>(); is valid!
+ *  	Box<? super B>		No			Yes			// note: Box<? super B> box = new Box<B>(); is valid!
  * 
  */
 public class exampleMain {
