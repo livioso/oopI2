@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *  
  *  List<String> aList...
  *  List<? extends Object> covariantList = aList;
- * 	List<? super String> contravariantList = aList;
+ *  List<? super String> contravariantList = aList;
  * 
  * >>> You can now access all methods of covariantList 
  * that doesn't take a generic parameter (as it must be 
@@ -23,10 +23,10 @@ import java.util.ArrayList;
  * 
  * Or in other words:
  * 			
- * 							Read		Write
- * 		Box<?> 				No			No
- * 		Box<? extends A>  	Yes		 	No			// note: Box<? extends B> box = new Box<B>(); is valid!
- *  	Box<? super B>		No			Yes			// note: Box<? super B> box = new Box<B>(); is valid!
+ *                     Read    Write
+ *    Box<?>           No      No
+ *    Box<? extends A> Yes     No    // note: Box<? extends B> box = new Box<B>(); is valid!
+ *    Box<? super B>   No      Yes   // note: Box<? super B> box = new Box<B>(); is valid!
  * 
  */
 public class exampleMain {
