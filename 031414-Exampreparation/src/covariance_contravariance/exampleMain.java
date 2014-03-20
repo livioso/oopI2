@@ -31,6 +31,7 @@ import java.util.ArrayList;
  */
 public class exampleMain {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		ArrayList<Object> example01 = new ArrayList<Object>(); 

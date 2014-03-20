@@ -6,6 +6,11 @@ import javax.swing.*;
 
 public class mainframeExample02 extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static void main(String[] args) {
 		mainframeExample02 meinFenster = new mainframeExample02();
 		meinFenster.setVisible(true);
