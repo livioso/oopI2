@@ -17,7 +17,12 @@ public class mainframeExample02 extends JFrame{
 		JButton myButton= new JButton("Hallo"); 
 		myButton.setForeground(Color.BLUE); 
 		myButton.setBackground(Color.GREEN); 
-		myButton.setFont(new Font("Serif", 1, 24)); 
+		myButton.setFont(new Font("Serif", 1, 24));
+		
+		myButton.addActionListener(
+			event -> {
+				System.out.println("Hallo Button Pressed");
+			});
 		
 		add(myButton);
 		pack();
