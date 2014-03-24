@@ -43,6 +43,11 @@ public class MainFrame extends JFrame{
 	}
 	
 	private void addControlPanelComponents() {
+		startNewGameButton.addActionListener(
+			ae -> { 
+				mixButtons();
+		});
+		
 		controlPanel.add(startNewGameButton);
 		controlPanel.add(gameOutputLabel);	
 	}
@@ -55,6 +60,10 @@ public class MainFrame extends JFrame{
 		}
 	}
 
+	private void mixButtons() {
+		
+	}
+	
 	public static void main(String[] args) {
 		MainFrame mainFrame = new MainFrame();
 		mainFrame.setVisible(true);
