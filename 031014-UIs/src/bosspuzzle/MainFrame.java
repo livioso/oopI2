@@ -1,8 +1,11 @@
 package bosspuzzle;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +25,7 @@ public class MainFrame extends JFrame{
 	JButton startNewGameButton = new JButton("Start");
 
 	/** Game title label */
-	JLabel gameTitleLabel = new JLabel("BLABLA");
+	JLabel gameTitleLabel = new JLabel("Welcome");
 	
 	/** Game output label */
 	JLabel gameOutputLabel = new JLabel("Output");
@@ -31,8 +34,9 @@ public class MainFrame extends JFrame{
 	JPanel controlPanel = new JPanel(new GridLayout(1,2));
 	
 	public MainFrame() {
-		
+		setSize(400, 400);
 		setLayout(new BorderLayout());
+		
 		add(buttonPanel, BorderLayout.CENTER);
 		add(controlPanel, BorderLayout.SOUTH);
 		add(gameTitleLabel, BorderLayout.NORTH);
@@ -48,6 +52,12 @@ public class MainFrame extends JFrame{
 				mixButtons();
 		});
 		
+		startNewGameButton.addActionListener(new ActionListener(){
+		     public void actionPerformed(ActionEvent e) {
+		       mixButtons();
+		     }
+		}); 
+		
 		controlPanel.add(startNewGameButton);
 		controlPanel.add(gameOutputLabel);	
 	}
@@ -57,6 +67,12 @@ public class MainFrame extends JFrame{
 			JButton newControlButton = new JButton(i.toString());
 			controlButtons.add(newControlButton);
 			buttonPanel.add(newControlButton);
+		}
+		
+		if(!controlButtons.isEmpty()) {
+			// remove the last ones label because 
+			// this is the whole point of this game
+			controlButtons.get(controlButtons.size() - 1).setText("");
 		}
 	}
 
