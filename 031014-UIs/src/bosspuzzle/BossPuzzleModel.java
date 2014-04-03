@@ -46,12 +46,14 @@ public class BossPuzzleModel {
 	public boolean makeMove (int indexOfMove) {
 		boolean gameMapStatesModelChanged = false;
 		
-		if(isEmptyTileLeft() || isEmptyTileRight() ||
-		   isEmtpyTileBelow() || isEmptyTileAbove()) {
+		if(isEmptyTileLeft(indexOfMove) || isEmptyTileRight(indexOfMove) ||
+		   isEmtpyTileBelow(indexOfMove) || isEmptyTileAbove(indexOfMove)) {
 			// there will be a change
 			gameMapStatesModelChanged = true;
 			makeMoveOnTile(indexOfMove);
 		}
+		
+		return gameMapStatesModelChanged;
 	}
 
 	private void makeMoveOnTile(int indexOfMove) {
@@ -59,22 +61,21 @@ public class BossPuzzleModel {
 		
 	}
 
-	private boolean isEmptyTileAbove() {
+	private boolean isEmptyTileAbove(int indexOfMove) {
+		return false;
+	}
+
+	private boolean isEmptyTileLeft(int indexOfMove) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	private boolean isEmptyTileLeft() {
+	private boolean isEmtpyTileBelow(int indexOfMove) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	private boolean isEmtpyTileBelow() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private boolean isEmptyTileRight() {
+	private boolean isEmptyTileRight(int indexOfMove) {
 		// TODO Auto-generated method stub
 		return false;
 	}
