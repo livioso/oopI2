@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainFrame extends JFrame{
+public class BossPuzzleMainView extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class MainFrame extends JFrame{
 	JPanel buttonPanel = new JPanel(new GridLayout(3,3,10,10));
 	JPanel controlPanel = new JPanel(new GridLayout(1,2));
 	
-	public MainFrame() {
+	public BossPuzzleMainView() {
 		setSize(400, 400);
 		setLayout(new BorderLayout());
 		
@@ -81,7 +81,7 @@ public class MainFrame extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		MainFrame mainFrame = new MainFrame();
+		BossPuzzleMainView mainFrame = new BossPuzzleMainView();
 		mainFrame.setVisible(true);
 	}
 }
