@@ -2,6 +2,9 @@ package bosspuzzle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
 /**
  * The game model indexing looks a following
@@ -14,7 +17,7 @@ import java.util.List;
  * @author livio
  *
  */
-public class BossPuzzleModel {
+public class BossPuzzleModel extends Observable{
 	/**
 	 * 	The two dimensional map is 
 	 * 	simple represented as a one dimensional 
@@ -27,6 +30,11 @@ public class BossPuzzleModel {
 	 */
 	List<String> gameMapStatesModel = new ArrayList<String>(9);
 
+	/** 
+	 * This is the string that represents the empty tile
+	 */
+	private final String EMPTYTILESTRING = "";
+	
 	public BossPuzzleModel () {
 		resetBossPuzzle();
 	}
@@ -38,45 +46,60 @@ public class BossPuzzleModel {
 		}
 		
 		// the last field is empty
-		gameMapStatesModel.set(8, "");
+		gameMapStatesModel.set(8, EMPTYTILESTRING);
 	}
 	
-	/** Tries to make the desired move. 
-	 * @return true if move is done and the model changed; false if gameMapStatesModel didn't change */
-	public boolean makeMove (int indexOfMove) {
-		boolean gameMapStatesModelChanged = false;
+	public int getIndexOfEmptyTile() {
+		int indexOfEmptyTile = gameMapStatesModel.indexOf(EMPTYTILESTRING);
 		
-		if(isEmptyTileLeft(indexOfMove) || isEmptyTileRight(indexOfMove) ||
-		   isEmtpyTileBelow(indexOfMove) || isEmptyTileAbove(indexOfMove)) {
-			// there will be a change
-			gameMapStatesModelChanged = true;
-			makeMoveOnTile(indexOfMove);
-		}
+		// there must be a empty tile
+		// otherwise there is something 
+		// seriously wrong.
+		assert(indexOfEmptyTile != -1);
 		
-		return gameMapStatesModelChanged;
+		return indexOfEmptyTile;
 	}
 
-	private void makeMoveOnTile(int indexOfMove) {
-		// TODO Auto-generated method stub
+	public void makeMoveOnTile(int indexOfMove) {
+		if(isMoveOnTilePossible(indexOfMove)) {
+			
+			
+			
+			// there was a change notify 
+			// our observers about this
+			setChanged();
+			notifyObservers(gameMapStatesModel);
+		}	
+	}
+
+	private boolean isMoveOnTilePossible(int indexOfMove) {
+		boolean moveOnTilePossible = false;
 		
+		moveOnTilePossible = moveOnTilePossible || isMoveUpPossible(indexOfMove);
+		moveOnTilePossible = moveOnTilePossible || isMoveDownPossible(indexOfMove);
+		moveOnTilePossible = moveOnTilePossible || isMoveLeftPossible(indexOfMove);
+		moveOnTilePossible = moveOnTilePossible || isMoveRightPossible(indexOfMove);
+		
+		return moveOnTilePossible;
 	}
 
-	private boolean isEmptyTileAbove(int indexOfMove) {
-		return false;
+	private boolean isMoveUpPossible(int indexOfMove) {
+		int upTileIndex = indexOfMove - 3;
+		return (upTileIndex >= 0 && upTileIndex <= 8);
 	}
-
-	private boolean isEmptyTileLeft(int indexOfMove) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	private boolean isMoveDownPossible(int indexOfMove) {
+		int upTileIndex = indexOfMove + 3;
+		return (upTileIndex >= 0 && upTileIndex <= 8);
 	}
-
-	private boolean isEmtpyTileBelow(int indexOfMove) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	private boolean isMoveLeftPossible(int indexOfMove) {
+		int upTileIndex = indexOfMove - 1;
+		return (upTileIndex >= 0 && upTileIndex <= 8);
 	}
-
-	private boolean isEmptyTileRight(int indexOfMove) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	private boolean isMoveRightPossible(int indexOfMove) {
+		int upTileIndex = indexOfMove + 3;
+		return (upTileIndex >= 0 && upTileIndex <= 8);
 	}
 }
