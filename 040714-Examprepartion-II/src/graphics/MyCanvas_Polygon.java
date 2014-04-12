@@ -4,15 +4,13 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.Window;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class MyCanvas_Polygon extends Canvas{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6439556845790651062L;
 	private Polygon polygon;
 	
 	public MyCanvas_Polygon() {

@@ -6,12 +6,15 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class MyCanvas extends Canvas implements MouseListener{
 	
-	private int oldX;
-	private int oldY;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6568425965291292194L;
+	
+	
 	private int enterX;
 	private int enterY;
 	private Color myColor;
@@ -53,8 +56,6 @@ public class MyCanvas extends Canvas implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		oldX = e.getX();
-		oldY = e.getY();
 	}
 
 	@Override

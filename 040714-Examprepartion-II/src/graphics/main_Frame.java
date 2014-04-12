@@ -3,6 +3,11 @@ package graphics;
 import javax.swing.JFrame;
 
 public class main_Frame extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4487060283311472943L;
+	
 	MyCanvas_Polygon canvas;
 	
 	public main_Frame() {
@@ -15,7 +20,7 @@ public class main_Frame extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		main_Frame mf = new main_Frame();
+		new main_Frame();
 	}
 
 }
