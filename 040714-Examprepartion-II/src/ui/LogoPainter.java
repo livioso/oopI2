@@ -5,6 +5,11 @@ import javax.swing.JFrame;
 
 public class LogoPainter extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public LogoPainter() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    this.setTitle("GUI-Testaufgabe");

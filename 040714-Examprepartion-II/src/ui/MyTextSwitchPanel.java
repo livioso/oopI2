@@ -6,6 +6,11 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class MyTextSwitchPanel extends JPanel implements MouseListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JLabel l1= new JLabel(); 
 	private JLabel l2= new JLabel(); 
 	private JLabel l3= new JLabel(); 

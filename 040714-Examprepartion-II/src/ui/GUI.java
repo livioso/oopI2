@@ -6,6 +6,11 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class GUI extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	JButton b1= new JButton("löschen");
 	JButton b2= new JButton("übernehmen");
 	JTextArea t1 = new JTextArea("asdf");
