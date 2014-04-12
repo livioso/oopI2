@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class MyCanvas extends Canvas implements MouseListener{
 	private int oldX;
 	private int oldY;
@@ -23,6 +24,7 @@ public class MyCanvas extends Canvas implements MouseListener{
 		myCol= new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
 	}
 	
+	@SuppressWarnings("unused")
 	@Override
 	public void paint(Graphics g){
 		g.setColor(myCol);

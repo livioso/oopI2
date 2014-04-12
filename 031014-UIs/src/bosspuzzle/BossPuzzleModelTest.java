@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class BossPuzzleModelTest {
 	
+	@SuppressWarnings("unused")
 	private BossPuzzleModel classUnderTest;
 
 	@Before
